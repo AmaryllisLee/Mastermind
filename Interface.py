@@ -1,5 +1,6 @@
-from Spel import codebreker, spel_computer_tegen_men
+from Spel import codebreker, codemaker
 from Eigen_algoritme import eigen_strategie
+
 while True:
     print('''
         MASTERMIND
@@ -39,13 +40,13 @@ while True:
             '''
             Je hebt gekozen voor codemaker. Het computer heeft 2 verschillende strategie 
             om uw code te ontrafelen.
-            1.Simple strategy
-            2.Eigen heuristiek
+            1.Functie codemaker : Simple strategy
+            2.Functie eigen_strategie : Eigen heuristiek
             '''
         )
         antw = input('Kies strategie 1 of 2: ')
         if antw == '1':
-            uitslag = spel_computer_tegen_men()
+            uitslag = codemaker()
             if uitslag == 'win':
                 print('Computer heeft gewonnen')
             elif uitslag == 'lose':
@@ -70,4 +71,8 @@ while True:
     elif ans !='':
         print('\n Not Valid Choice Try again')
 
+'''
+Bron:
 
+Create a menu:  https://stackoverflow.com/questions/19964603/creating-a-menu-in-python
+'''

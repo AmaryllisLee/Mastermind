@@ -16,22 +16,22 @@ def shuffle_w(previous_gok, g,score):
     'In a score where contains only zwart and w pinnetjes, the w will be shuffled'
     w_lst = []
     w_index =[]
+    # Extract each letter from previous_gok with score 'w'
     for i in range(0,len(score)):
         if score[i] == 'w':
-            w_lst.append(previous_gok[i])
-            w_index.append(i)
+            w_lst.append(previous_gok[i])# Extract each letter from previous_gok with score 'w' and append in lst
+            w_index.append(i) #Append index of letter of previous gok with score 'w' in lst
         else:
             continue
 
     random.shuffle(w_lst)
-
+    # Insert shuffled letter in g in index from w_index
     for i in range(0,len(w_index)):
         g[w_index[i]]= w_lst[i]
     return g
 
 
 
-    return w_index
 def zw_w_score_bepalen(p1, p2):
     'Zwart, wit pinnejtes bepalen van twee codes'
     zw_w_score = []
@@ -86,7 +86,7 @@ def gokken_bepalen(previous_gok,score):
                 if g <4:
                     g.append(i * 2)
             return g
-         # insert elements of previous_gok that is de same colour and position as sc
+         # Insert elements of previous_gok that is de same colour and position as sc ( thus contain score zw)
         if 'z' in score:#insert all element in previous_gok met score zw in g
             for i in range(0,len(score)):
                 if score[i] == 'z':
@@ -95,8 +95,10 @@ def gokken_bepalen(previous_gok,score):
                 else:
                     g.insert(i,'x')
             a+=1
+
+        # Handle the rest of the elements in previous_gok that contains 'w' or 'n' as score
         elif 'w' in score:
-                if 'n' in score:# if teh score contains a mixture of n en w. We would like to change n to w
+                if 'n' in score:# if the score contains a mixture of n en w. We would like to change n to w
                     for i in range(0,len(score)):
                         if score =='x':
                             continue
@@ -113,6 +115,8 @@ def gokken_bepalen(previous_gok,score):
 
 
 
-
+'''
+Shuffle a list : https://pynative.com/python-random-shuffle/
+'''
 
 

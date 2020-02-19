@@ -1,13 +1,7 @@
 import random
-from itertools import combinations
+
 '''
 voor dit opdracht gaat ik gebruikmaken van letters A-F om de kleuren te definieren en berekingnen te doen
-A= rood
-B= blauw
-C = groen
-D = geel 
-E = Zwart
-F = wit
 '''
 
 
@@ -104,19 +98,20 @@ def gok_checken(secret_code, lijst_alle_combinatie):
         break
 
 
-
-
-def join_string(s):
-    str = ''
-    return str.join(s)
-
-
+def join_string(lst):
+    'Lst to string'
+    s = ''
+    return s.join(lst)
 
 
 
 
+'''
+Bron :
+lst_combinatie_genereren - Marya(student)
 
-# Bron - Marya
+'''
+
 
 
 
