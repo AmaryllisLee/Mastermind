@@ -90,20 +90,20 @@ def lijst_schrappen(gok, z_w_feedback,lijst_alle_combinatie):
             continue
     return  lijst_alle_combinatie
 
-def gok_checken(gok, secret_code, lijst_alle_combinatie, ):
+def gok_checken(secret_code, lijst_alle_combinatie):
     alle_z_w_feedback_lst = []
-
     while True:
-        #gok = random.choice(lijst_alle_combinatie)  # returns een random combinatie uit de lijst
+        gok = random.choice(lijst_alle_combinatie)  # returns een random combinatie uit de lijst
         z_w_feedback = pincodes_vergelijken(secret_code,gok)  # vergelijk pincodes met elkaar -> output aantal zwart en wit
 
         if z_w_feedback in alle_z_w_feedback_lst:
             continue
         else:
             alle_z_w_feedback_lst.append(z_w_feedback)
-            break
+            return gok, z_w_feedback
+        break
 
-    return gok, z_w_feedback
+
 
 
 def join_string(s):

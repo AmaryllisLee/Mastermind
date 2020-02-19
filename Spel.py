@@ -1,12 +1,11 @@
 from Backend import gekleurde_pincode_input, gekleurde_pincode_genereren, lst_combinatie_genereren, pincodes_vergelijken,lijst_schrappen, gok_checken
-import random
+
 
 lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
-def spel_men_tegen_computer():
-    '''
-    Op basis van de input van men(pincode), gaat de computer de pincodes vergelijken
-    '''
-    secret_code = gekleurde_pincode_genereren()
+
+def codebreker():
+    'Op basis van de input van de user, gaat de codemaker de geheime code  proberen te raden'
+    secret_code = gekleurde_pincode_genereren() #
     print(secret_code)
     i=0
     while i<= 10:
@@ -22,10 +21,13 @@ def spel_men_tegen_computer():
 
 
 def spel_computer_tegen_men():
+    'Computer moet de secret code raden'
+    '''
+    Simple strategy
+    Voor deze algoritme gaan we eerst een gok vergelijken met de secret code.
+    Daarna wordt het gok vergeleken met alle mogelijk pincode
+    '''
     lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
-
-
-
     secret_code = gekleurde_pincode_input()  # secret pincode van de speler
     lijst_alle_combinatie = lst_combinatie_genereren()
 
@@ -33,11 +35,10 @@ def spel_computer_tegen_men():
     while i <=10:
         if i == 0:
             gok = ['A','A','B','C']
+            z_w_feedback = pincodes_vergelijken(secret_code,gok)
         else:
-            gok= random.choice(lijst_alle_combinatie) # TODO ALgoritme vabn Algoritme.py implementeren
-        gok, z_w_feedback = gok_checken(gok,secret_code,lijst_alle_combinatie)
+             gok,z_w_feedback = gok_checken(secret_code,lijst_alle_combinatie) # TODO ALgoritme vabn Algoritme.py implementeren
 
-        print(gok, z_w_feedback)
 
         if z_w_feedback == (4, 0):
                 return ('win')
@@ -50,5 +51,6 @@ def spel_computer_tegen_men():
 
 
 
-print(spel_computer_tegen_men())
+
+
 
