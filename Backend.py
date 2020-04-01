@@ -72,9 +72,6 @@ def pincodes_vergelijken(p1, p2):
 
 def lijst_schrappen(gok, z_w_feedback,lijst_alle_combinatie):
     'Verwijder alle combinatie uit lijst waar feedback_comb_gok == z_w_feedback (feedb van secret code en gok)'
-
-
-
     for combinatie in lijst_alle_combinatie:
         feedback_comb_gok = pincodes_vergelijken(gok, combinatie)
 
@@ -83,6 +80,8 @@ def lijst_schrappen(gok, z_w_feedback,lijst_alle_combinatie):
         else:
             continue
     return  lijst_alle_combinatie
+
+
 
 def gok_checken(secret_code, lijst_alle_combinatie):
     alle_z_w_feedback_lst = []

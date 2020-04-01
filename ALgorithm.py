@@ -57,8 +57,8 @@ def lijst_categoriseren():
             dct = categoriseren_dict(j,possible_combination_feedbacks)
             dict_res[join_string(i)] = dct
     return dict_res
-#code, possible_combination_feedbacks = lijst()
-#print(code[0], categoriseren_dict(0, possible_combination_feedbacks))
+code, possible_combination_feedbacks = lijst()
+print(code[0], categoriseren_dict(0, possible_combination_feedbacks))
 
 '''
 Voor dit algoritme was de bedoeling om dmv van het artikel van  Unversiteit van Groningen ( 'Yet another mastermind by Barteld Kooi') de opvolgende gok(gok 2 3,etc te bepalen0:
