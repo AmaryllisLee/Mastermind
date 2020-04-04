@@ -1,8 +1,32 @@
 from Backend import gekleurde_pincode_input, gekleurde_pincode_genereren, lst_combinatie_genereren, pincodes_vergelijken,lijst_schrappen, gok_checken
 
-'''
 
-'''
+def input_keypegs(code, guess, tries):
+    'This function lets the user compare the two codes and return keypegs'
+    controle_keypegs = pincodes_vergelijken(code, guess) # This used to check that the user is not cheating
+    amount_tries = 0 # This gives the user 3 chances to guess correctly, else the program will use the controle_keypegs
+
+    print('''
+    
+    {} try : 
+    Your code     : {}
+    Computer guess: {}
+    
+    {} for now
+    '''.format(tries, code, guess, controle_keypegs))
+    while amount_tries !=3:
+
+        zwart_keypegs = int(input('How many black keypegs? '))
+        wit_keypegs = int(input('How many white keypegs? '))
+        user_keypegs = (zwart_keypegs, wit_keypegs)
+        if user_keypegs != controle_keypegs:
+            print('This is not the correct keypegs, Try again')
+            continue
+        else:
+            break
+
+    return user_keypegs
+
 
 lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
 def codemaker_2():
@@ -20,13 +44,13 @@ def codemaker_2():
     # If guess is not equal with code, the key pegs will be generated.
     while c <= 10:
         guess = possible_comibinations[0]
-        key_pegs = pincodes_vergelijken(code, guess)
+        key_pegs = input_keypegs(code, guess, c) # user can give keypegs, to make it easier change it to pincode_vergelijken
 
         if key_pegs == (4,0):
-            print('{},{},{} tries, You win'.format(guess, key_pegs, c))
+            print('{}, {} in  {} tries, Computer win'.format(guess, key_pegs, c))
             break
         else:
-            #Based on the generated key pegs, the list of possible_commbination will be nodify.
+            #Based on the generated key pegs, the list of possible_commbination will be modified.
             lijst_schrappen(guess, key_pegs, possible_comibinations)
             print(code,guess, key_pegs, len(possible_comibinations))
 
@@ -34,7 +58,6 @@ def codemaker_2():
             continue
             print(code,guess, key_pegs, len(possible_comibinations))
 
-    print('Computer loses')
 
 
 codemaker_2()
