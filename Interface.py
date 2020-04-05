@@ -1,5 +1,6 @@
 from Spel import codebreker, codemaker
 from Eigen_algoritme import eigen_strategie
+from codemaker import codemaker_versie2
 
 while True:
     print('''
@@ -46,7 +47,7 @@ while True:
         )
         antw = input('Kies strategie 1 of 2: ')
         if antw == '1':
-            uitslag = codemaker()
+            uitslag = codemaker_versie2()
             if uitslag == 'win':
                 print('Computer heeft gewonnen')
             elif uitslag == 'lose':
