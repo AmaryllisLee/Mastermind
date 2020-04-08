@@ -29,7 +29,7 @@ def input_keypegs(code, guess, tries):
 
 
 lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
-def codemaker_versie2():
+def codemaker():
     'AI has to break code'
 
     # user chooses 4 pin code that consist of lijst_letters
@@ -57,7 +57,7 @@ def codemaker_versie2():
             c+=1
             continue
             print(code,guess, key_pegs, len(possible_comibinations))
-    
+
 
 
 

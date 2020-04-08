@@ -1,6 +1,5 @@
-from Spel import codebreker, codemaker
-from Eigen_algoritme import eigen_strategie
-from codemaker import codemaker_versie2
+from codebreaker import codebreaker
+from codemaker import codemaker
 
 while True:
     print('''
@@ -27,7 +26,7 @@ while True:
     ans = input('Welke kies je voor? ')
 
     if ans == '1':
-        uitslag = codebreker()
+        uitslag = codebreaker()
         if uitslag == 'win':
             print('Gefeliciteerd, je hebt gewonnen')
         elif uitslag == 'lose':
@@ -41,30 +40,22 @@ while True:
             '''
             Je hebt gekozen voor codemaker. Het computer heeft 2 verschillende strategie 
             om uw code te ontrafelen.
-            1.Functie codemaker : Simple strategy
-            2.Functie eigen_strategie : Eigen heuristiek
+            Functie codemaker : Simple strategy
+        
             '''
         )
-        antw = input('Kies strategie 1 of 2: ')
-        if antw == '1':
-            uitslag = codemaker_versie2()
-            if uitslag == 'win':
-                print('Computer heeft gewonnen')
-            elif uitslag == 'lose':
-                print('Computer heeft verloren')
+        #antw = input('Kies strategie 1 of 2: ')
+        #if antw == '1':
+        uitslag = codemaker()
 
-            else:
-                print('Error')
+        if uitslag == 'win':
+            print('Computer heeft gewonnen')
+        elif uitslag == 'lose':
+            print('Computer heeft verloren')
 
-        elif antw == '2':
-            uitslag = eigen_strategie()
-            if uitslag == 'win':
-                print('Computer heeft gewonnen')
-            elif uitslag == 'lose':
-                print('Computer heeft verloren')
+        else:
+            print('Error')
 
-            else:
-                print('Error')
 
     elif ans =='3':
         break
