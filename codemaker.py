@@ -1,4 +1,4 @@
-from Backend import gekleurde_pincode_input, gekleurde_pincode_genereren, lst_combinatie_genereren, pincodes_vergelijken,lijst_schrappen, gok_checken
+from Backend import gekleurde_pincode_input,lst_combinatie_genereren, pincodes_vergelijken, lijst_schrappen, generate_lijst_letters
 
 
 def input_keypegs(code, guess, tries):
@@ -14,7 +14,7 @@ def input_keypegs(code, guess, tries):
     
     {} for now
     '''.format(tries, code, guess, controle_keypegs))
-    while amount_tries !=3:
+    while amount_tries != 3:
 
         zwart_keypegs = int(input('How many black keypegs? '))
         wit_keypegs = int(input('How many white keypegs? '))
@@ -24,39 +24,45 @@ def input_keypegs(code, guess, tries):
             continue
         else:
             break
-
     return user_keypegs
 
 
-lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
-def codemaker():
+
+
+#lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
+
+def codemaker(n):
     'AI has to break code'
 
+    lijst_letters = generate_lijst_letters(n)
     # user chooses 4 pin code that consist of lijst_letters
     code = gekleurde_pincode_input()
 
     # Generate list of all possible combination
     possible_comibinations = lst_combinatie_genereren()
 
-    c =0 # c
 
+    print(code)
     # Compare the first element of list possible_combination(guess) with code.
     # If guess is not equal with code, the key pegs will be generated.
-    while c <= 10:
+    for i in range(10):
         guess = possible_comibinations[0]
         key_pegs = pincodes_vergelijken(code, guess) # user can give keypegs, to make it easier change it to pincode_vergelijken
+
         #TODO change function pincode_vergelijken to input_keypegs
         if key_pegs == (4,0):
-            print('{}, {} in  {} tries, Computer win'.format(guess, key_pegs, c))
+            print('{}, {} in  {} tries, Computer win !!'.format(guess, key_pegs, i))
             break
         else:
             #Based on the generated key pegs, the list of possible_commbination will be modified.
-            lijst_schrappen(guess, key_pegs, possible_comibinations)
-            print(code,guess, key_pegs, len(possible_comibinations))
 
-            c+=1
-            continue
-            print(code,guess, key_pegs, len(possible_comibinations))
+            lijst_schrappen(guess, key_pegs, possible_comibinations)
+            print('{} tries, {}, {}, {}  '.format(i,guess, key_pegs, len(possible_comibinations)))
+    #print("You WON, the Computer couldn't have guessed your code")
+
+
+
+
 
 
 

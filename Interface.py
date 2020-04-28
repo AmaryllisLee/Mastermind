@@ -7,7 +7,7 @@ while True:
         Mastermind is een spel waar de ene speler probeert 
         de geheime code van de andere speler te ontrafelen.
         
-        De codemaker kiest in het geheim vier code-pionnen.De codebreker heeft 10 kans
+        De codemaker kiest in het geheim aantal code-pionnen die bestaat  uit gekozen aantal letters.De codebreker heeft 10 kans
         om de verborgen code te ontrafelen.Voor elke kans moet de codemaker een feedback
         geven:
         
@@ -26,7 +26,12 @@ while True:
     ans = input('Welke kies je voor? ')
 
     if ans == '1':
-        uitslag = codebreaker()
+        print('''
+        Je hebt gekozen voor codebreaker
+        ''')
+        aantalLetters = int(input('Aantal letters? '))
+        aantalPosities = int(input('Aantal posities? '))
+        uitslag = codebreaker(aantalLetters, aantalPosities)
         if uitslag == 'win':
             print('Gefeliciteerd, je hebt gewonnen')
         elif uitslag == 'lose':
@@ -38,28 +43,19 @@ while True:
     elif ans == '2':
         print(
             '''
-            Je hebt gekozen voor codemaker. Het computer heeft 2 verschillende strategie 
-            om uw code te ontrafelen.
-            Functie codemaker : Simple strategy
-        
+            Je hebt gekozen voor codemaker. De computer maakt gebruik van de strategie Simple strategy.
+            Bron voor Simple startegy: Yet another Mastermind Strategy van de Universiteit Groningen
+            
+            Je kan kiezen voor hoeveel letter en hoeveel posties die je wil gebruiken.
             '''
         )
-        #antw = input('Kies strategie 1 of 2: ')
-        #if antw == '1':
-        uitslag = codemaker()
-
-        if uitslag == 'win':
-            print('Computer heeft gewonnen')
-        elif uitslag == 'lose':
-            print('Computer heeft verloren')
-
-        else:
-            print('Error')
-
+        aantalLetters = int(input('Aantal letters? '))
+        aantalPosities =int(put('Aantal posities? '))
+        codemaker(aantalPosities,aantalLetters)
 
     elif ans =='3':
         break
-        print('\n Goodbye')
+        print('\n Thank you for playing')
     elif ans !='':
         print('\n Not Valid Choice Try again')
 

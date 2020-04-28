@@ -1,40 +1,48 @@
 import random
+import string
+
 
 '''
 voor dit opdracht gaat ik gebruikmaken van letters A-F om de kleuren te definieren en berekingnen te doen
 '''
 
+#lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
+def generate_lijst_letters (aLetters):
+    'Generate a list that contains n letters'
+    lijst_letters = list(string.ascii_uppercase)
+    return lijst_letters[:aLetters]
 
-def gekleurde_pincode_genereren():
-    lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
+
+
+
+def gekleurde_pincode_genereren(aPositie, aLetters):
+    lijst_letters = generate_lijst_letters(aLetters)
     pincode = []
-    i=0
-    while i<4:
+    for i in range(aPositie):
         pincode.append(random.choice(lijst_letters)) # Voeg toe een random kleur uit lijst kleur
-        i+=1
     return pincode
 
 
 
-def gekleurde_pincode_input():
-    'Gebruiker maakt een 4 pincode uit  op basis van inputs '
-    lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
+def gekleurde_pincode_input(aPosities, aLetters):
+    lijst_letters = generate_lijst_letters(aLetters)
+    'Gebruiker maakt een n pincode uit  op basis van inputs '
     pincode= []
     i=0
-    while i<4:
-        kleur= input('Geeft aan een letter van A t/m  F:  ')
-        if kleur in lijst_letters:
-            pincode.append(kleur)
-            i+=1
+    while i < aPosities:
+        letter= input('Geeft aan een letter van A t/m {}:  '.format(lijst_letters[-1]))
+        if letter in lijst_letters:
+            pincode.append(letter)
+            i += 1
         else:
-            print('Error, je moet een letter van A t/m F aangeven')
+            print('Error, je moet een letter van A t/m {} aangeven'.format(lijst_letters[-1]))
     return pincode
 
 
 
-def lst_combinatie_genereren():
+def lst_combinatie_genereren(n):
+    lijst_letters = generate_lijst_letters(n)
     'Alle mogelijke combinatie berkenen en in een set toevoegen'
-    lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
     alle_combinatie= []
     for i in lijst_letters:
         for j in lijst_letters:
@@ -79,28 +87,9 @@ def lijst_schrappen(gok, z_w_feedback,lijst_alle_combinatie):
             lijst_alle_combinatie.remove(combinatie)
         else:
             continue
-    return  lijst_alle_combinatie
+    return lijst_alle_combinatie
 
 
-
-def gok_checken(secret_code, lijst_alle_combinatie):
-    alle_z_w_feedback_lst = []
-    while True:
-        gok = random.choice(lijst_alle_combinatie)  # returns een random combinatie uit de lijst
-        z_w_feedback = pincodes_vergelijken(secret_code,gok)  # vergelijk pincodes met elkaar -> output aantal zwart en wit
-
-        if z_w_feedback in alle_z_w_feedback_lst:
-            continue
-        else:
-            alle_z_w_feedback_lst.append(z_w_feedback)
-            return gok, z_w_feedback
-        break
-
-
-def join_string(lst):
-    'Lst to string'
-    s = ''
-    return s.join(lst)
 
 
 

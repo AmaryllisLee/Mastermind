@@ -1,5 +1,11 @@
-lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
+import string
 
+
+#lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
+def generate_lijst_letters (n):
+    'Generate a list that contains n letters'
+    lijst_letters = list(string.ascii_uppercase)
+    return lijst_letters[:n]
 
 def gekleurde_pincode_input2():
     'Gebruiker maakt een 4 pincode uit  op basis van inputs '
@@ -57,3 +63,41 @@ def codemaker():
     return ('lose')
 
 '''
+
+'''
+def gok_checken(secret_code, lijst_alle_combinatie):
+
+    alle_z_w_feedback_lst = []
+    while True:
+        gok = random.choice(lijst_alle_combinatie)  # returns een random combinatie uit de lijst
+        z_w_feedback = pincodes_vergelijken(secret_code,gok)  # vergelijk pincodes met elkaar -> output aantal zwart en wit
+
+        if z_w_feedback in alle_z_w_feedback_lst:
+            continue
+        else:
+            alle_z_w_feedback_lst.append(z_w_feedback)
+            return gok, z_w_feedback
+        break
+'''
+
+'''
+def join_string(lst):
+    'Lst to string'
+    s = ''
+    return s.join(lst)
+'''
+
+
+#Interface ans 2
+'''
+        if uitslag == 'win':
+            print('Computer heeft gewonnen')
+        elif uitslag == 'lose':
+            print('Computer heeft verloren')
+
+        else:
+            print('Error')
+    '''
+
+# antw = input('Kies strategie 1 of 2: ')
+# if antw == '1':
