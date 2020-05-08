@@ -7,6 +7,7 @@ De reden is voor een goede overzichtelijkheid van de pincodes.
 
 
 def codebreaker(aPositie,aLetters):
+    'Functie aar gebruiker speelt het spel tegen de computer'
     lijst_letters = generate_lijst_letters(aLetters)
     'Op basis van de input van de user, gaat de codemaker de geheime code  proberen te raden'
     secret_code = gekleurde_pincode_genereren(aPositie,aLetters) #
