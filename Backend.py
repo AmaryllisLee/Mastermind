@@ -1,5 +1,6 @@
 import random
 import string
+import itertools
 
 
 '''
@@ -39,7 +40,7 @@ def gekleurde_pincode_input(aPosities, aLetters):
     return pincode
 
 
-
+#TODO Pas aan functie zodat die lijst generen voor alle pincodes met verschillende posities
 def lst_combinatie_genereren(n):
     lijst_letters = generate_lijst_letters(n)
     'Alle mogelijke combinatie berkenen en in een set toevoegen'
@@ -50,6 +51,7 @@ def lst_combinatie_genereren(n):
                 for g in lijst_letters:
                     alle_combinatie.append([i,j,h,g])
     return alle_combinatie
+
 
 
 

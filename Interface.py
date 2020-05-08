@@ -31,7 +31,7 @@ while True:
         ''')
         aantalLetters = int(input('Aantal letters? '))
         aantalPosities = int(input('Aantal posities? '))
-        uitslag = codebreaker(aantalLetters, aantalPosities)
+        uitslag = codebreaker(aantalPosities, aantalLetters)
         if uitslag == 'win':
             print('Gefeliciteerd, je hebt gewonnen')
         elif uitslag == 'lose':
@@ -50,7 +50,7 @@ while True:
             '''
         )
         aantalLetters = int(input('Aantal letters? '))
-        aantalPosities =int(put('Aantal posities? '))
+        aantalPosities =int(input('Aantal posities? '))
         codemaker(aantalPosities,aantalLetters)
 
     elif ans =='3':

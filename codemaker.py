@@ -31,15 +31,15 @@ def input_keypegs(code, guess, tries):
 
 #lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
 
-def codemaker(n):
+def codemaker(aPosities, aLetters):
     'AI has to break code'
 
-    lijst_letters = generate_lijst_letters(n)
+    lijst_letters = generate_lijst_letters(aLetters)
     # user chooses 4 pin code that consist of lijst_letters
-    code = gekleurde_pincode_input()
+    code = gekleurde_pincode_input(aPosities,aLetters)
 
     # Generate list of all possible combination
-    possible_comibinations = lst_combinatie_genereren()
+    possible_comibinations = lst_combinatie_genereren(aLetters)
 
 
     print(code)
@@ -50,7 +50,7 @@ def codemaker(n):
         key_pegs = pincodes_vergelijken(code, guess) # user can give keypegs, to make it easier change it to pincode_vergelijken
 
         #TODO change function pincode_vergelijken to input_keypegs
-        if key_pegs == (4,0):
+        if key_pegs == (aPosities,0):
             print('{}, {} in  {} tries, Computer win !!'.format(guess, key_pegs, i))
             break
         else:

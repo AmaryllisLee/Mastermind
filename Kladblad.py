@@ -1,4 +1,5 @@
 import string
+from itertools import combinations
 
 
 #lijst_letters = ['A', 'B', 'C', 'D', 'E', 'F']
@@ -6,7 +7,7 @@ def generate_lijst_letters (n):
     'Generate a list that contains n letters'
     lijst_letters = list(string.ascii_uppercase)
     return lijst_letters[:n]
-
+'''
 def gekleurde_pincode_input2():
     'Gebruiker maakt een 4 pincode uit  op basis van inputs '
     while True:
@@ -20,6 +21,7 @@ def gekleurde_pincode_input2():
         else:
             print('{} is not correct, Try another one'.format(list_kleur))
             continue
+'''
 '''
 Eigen Heuristiek
 lif antw == '2':
@@ -101,3 +103,10 @@ def join_string(lst):
 
 # antw = input('Kies strategie 1 of 2: ')
 # if antw == '1':
+
+# Python function to print permutations of a given list
+
+combList = combinations(generate_lijst_letters(6),4)
+for i in combList:
+    print(i)
+
