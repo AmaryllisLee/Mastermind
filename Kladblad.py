@@ -1,3 +1,7 @@
+'''
+Deze bestand is gebruik om verschillende code te testen en oude code te zetten
+'''
+
 import string
 from itertools import combinations
 
@@ -109,4 +113,32 @@ def join_string(lst):
 combList = combinations(generate_lijst_letters(6),4)
 for i in combList:
     print(i)
+
+'''
+def input_keypegs(code, guess, tries):
+    'This function lets the user compare the two codes and return keypegs'
+    controle_keypegs = pincodes_vergelijken(code, guess) # This used to check that the user is not cheating
+    amount_tries = 0 # This gives the user 3 chances to guess correctly, else the program will use the controle_keypegs
+
+    print(
+    
+    {} try : 
+    Your code     : {}
+    Computer guess: {}
+    
+    {} for now
+    .format(tries, code, guess, controle_keypegs))
+    while amount_tries != 3:
+
+        zwart_keypegs = int(input('How many black keypegs? '))
+        wit_keypegs = int(input('How many white keypegs? '))
+        user_keypegs = (zwart_keypegs, wit_keypegs)
+        if user_keypegs != controle_keypegs:
+            print('This is not the correct keypegs, Try again')
+            continue
+        else:
+            break
+    return user_keypegs
+
+'''
 
