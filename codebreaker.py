@@ -1,4 +1,4 @@
-from Backend import gekleurde_pincode_input, gekleurde_pincode_genereren, pincodes_vergelijken,generate_lijst_letters
+from Backend import gekleurde_pincode_input, gekleurde_pincode_genereren, pincodes_vergelijken
 
 
 
