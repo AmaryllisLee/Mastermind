@@ -1,17 +1,24 @@
 import random
 import string
 
+'''
+Voor deze tweede spelmodus moet de lst_combiantie_genereren aangepast worden zodat die een lijst kan generen van alle mogelijke pincodes van n posities
+in plaats van4 posities.Hier had ik op verschillende manieren geprobeerd maar het was niet gelukt.
+Om het programma toch werkend te krijgen had ik gebruik maken van de functie n_length_combo() die ik online had gevonden.
+Het enige probleem met deze functie is dat die genereert een lijst met alle unieke combinatie.
+Bijvoorbeeld zal er  een lijst van 10 in plaats van 125 ( bij 3 posities en 5 aantal letters).
+Daardoor is bij codemaker() beter om pincodes te vormen zonder herhaling vb AAB
 
-
-
+'''
 
 def generate_lijst_letters (aLetters):
     'Generate a list that contains n letters'
-    lijst_letters = list(string.ascii_uppercase)
-    return lijst_letters[:aLetters]
+    lijst_letters = list(string.ascii_uppercase)#maakt een lijst uit de string 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    return lijst_letters[:aLetters]# return lijst_letters to bepaalde index aLetters
 
 
 def gekleurde_pincode_genereren(aPositie, aLetters):
+    'Creeert een pincode die bestaat uit aPositie letters'
     lijst_letters = generate_lijst_letters(aLetters)
     pincode = []
     for i in range(aPositie):
@@ -37,7 +44,7 @@ def gekleurde_pincode_input(aPosities, aLetters):
 
 
 def n_length_combo(lst, n):
-    'Create a list of unique combination'
+    'Creeert een lijst van alle unieke combinatie uit een lijst '
     if n == 0:
         return [[]]
 
@@ -111,10 +118,7 @@ def lijst_schrappen(gok, z_w_feedback,lijst_alle_combinatie):
 '''
 Bron :
 lst_combinatie_genereren - hulp van Marya(student in AI - V1B)
-
 n_length_combo()- https://www.geeksforgeeks.org/combinations-in-python-without-using-itertools/
-n_length_combo() was een alternatieve functie om een lijst van combinatie te genereren waar de posities niet gelijk is aan 4.
-Het enige probleem met deze functie is dat die genereert een lijst met alle unieke combinatie.
 Lijst van de alfabet - https://stackoverflow.com/questions/16060899/alphabet-range-in-python
 '''
 

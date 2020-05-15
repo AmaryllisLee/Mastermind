@@ -110,9 +110,6 @@ def join_string(lst):
 
 # Python function to print permutations of a given list
 
-combList = combinations(generate_lijst_letters(6),4)
-for i in combList:
-    print(i)
 
 '''
 def input_keypegs(code, guess, tries):
@@ -142,4 +139,20 @@ def input_keypegs(code, guess, tries):
 
 '''
 #----------------------------------
+def n_length_combo(lst, n):
+    'Creeert een lijst van alle unieke combinatie uit een lijst '
+    if n == 0:
+        return [[]]
 
+    l = []
+    for i in range(0, len(lst)):
+
+        m = lst[i]
+        remLst = lst[i + 1:]
+
+        for p in n_length_combo(remLst, n - 1):
+            l.append([m] + p)
+
+    return l
+
+print(n_length_combo(generate_lijst_letters(5), 3))
